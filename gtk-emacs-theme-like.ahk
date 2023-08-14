@@ -13,9 +13,9 @@ SetKeyDelay 0
 is_target()
 {
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
-    Return 1 
+    Return 1
   IfWinActive,ahk_class MEADOW ; Meadow
-    Return 1 
+    Return 1
   IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0
     Return 1
   IfWinActive,ahk_class MozillaUIWindowClass ; keysnail on Firefox
@@ -31,8 +31,16 @@ is_target()
 ;     Return 1
 ;   IfWinActive,ahk_class SunAwtFrame
 ;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
+   IfWinActive,ahk_class Emacs ; NTEmacs
+     Return 1
+   IfWinActive,ahk_class vcxsrv/x X rl ; WSL2
+     Return 1
+   IfWinActive,ahk_class X410_XAppWin ; X410
+     Return 1
+   IfWinactive,ahk_class CASCADIA_HOSTING_WINDOW_CLASS ; WindowsTerminal
+     Return 1
+   IfWinactive,ahk_exe Code.exe ; VSCode
+     Return 1
 ;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
 ;     Return 1
   Return 0
@@ -69,10 +77,10 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send {Right}
-  Return  
+  Return
 
 ;
-; <shift><ctrl>f  
+; <shift><ctrl>f
 ; move cursor forward selecting chars
 ;
 +^f::
@@ -80,7 +88,7 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send +{Right}
-  Return  
+  Return
 
 ;
 ; <ctrl>p
@@ -201,7 +209,7 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send ^{Left}
-  Return  
+  Return
 
 ;
 ; <shift><alt>b
@@ -212,7 +220,7 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send +^{Left}
-  Return  
+  Return
 
 ;
 ; <alt>f
@@ -223,7 +231,7 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send ^{Right}
-  Return  
+  Return
 
 ;
 ; <shift><alt>f
@@ -240,23 +248,23 @@ is_target()
 ; <ctrl>w
 ; cut
 ;
-^w::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    Send ^x
-  Return
+;^w::
+;  If is_target()
+;    Send %A_ThisHotkey%
+;  Else
+;    Send ^x
+;  Return
 
 ;
 ; <ctrl>y
 ; paste
 ;
-^y::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    Send ^v
-  Return
+;^y::
+;  If is_target()
+;    Send %A_ThisHotkey%
+;  Else
+;    Send ^v
+;  Return
 
 ;
 ; <ctrl>k
@@ -268,8 +276,8 @@ is_target()
   Else
     Send {ShiftDown}{END}{SHIFTUP}
     Sleep 50
-    Send {Del}
-    ;Send ^x
+    ;Send {Del}
+    Send ^x
   Return
 
 ;
@@ -300,10 +308,10 @@ is_target()
   Return
 
 ;
-; <ctrl>r
+; <ctrl>s
 ; find
 ;
-^r::
+^s::
   If is_target()
     Send %A_ThisHotkey%
   Else
@@ -319,4 +327,15 @@ is_target()
     Send %A_ThisHotkey%
   Else
     Send ^a
+  Return
+
+;
+; <ctrl>/
+; undo
+;
+^/::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    Send ^z
   Return

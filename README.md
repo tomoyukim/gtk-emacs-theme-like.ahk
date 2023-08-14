@@ -1,4 +1,4 @@
-# gtk-emacs-theme-like.ahk 
+# gtk-emacs-theme-like.ahk
 This tiny script allows you to use the gtk-emacs-key-theme like bindings on Windows, which is written in AutoHotkey (AHK) language. This script forked from usi3's emacs.ahk.
 
 ## Supported keybindings
@@ -80,16 +80,16 @@ This tiny script allows you to use the gtk-emacs-key-theme like bindings on Wind
 <td>move cursor one word forward selecting chars</td>
 </tr>
 <tr>
-<td>Ctrl+W</td>
-<td>cut</td>
+<td><s>Ctrl+W</s></td>
+<td><s>cut</s></td>
 </tr>
 <tr>
-<td>Ctrl+Y</td>
-<td>paste</td>
+<td><s>Ctrl+Y</s></td>
+<td><s>paste</s></td>
 </tr>
 <tr>
 <td>Ctrl+K</td>
-<td>delete chars from cursor to end of line</td>
+<td>cut<s>delete</s> chars from cursor to end of line</td>
 </tr>
 <tr>
 <td>Ctrl+U</td>
@@ -100,12 +100,15 @@ This tiny script allows you to use the gtk-emacs-key-theme like bindings on Wind
 <td>new line(enter)</td>
 </tr>
 <tr>
-<td>Ctrl+R</td>
+<td>Ctrl+S<s>R</s></td>
 <td>find</td>
 </tr>
 <tr>
 <td>Ctrl+\</td>
 <td>select all</td>
 </tr>
+<tr>
+<td>Ctrl+/</td>
+<td>undo</td>
+</tr>
 </table>
-
