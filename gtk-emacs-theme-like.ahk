@@ -274,27 +274,29 @@ is_target()
   If is_target()
     Send %A_ThisHotkey%
   Else
+  {
     Send {ShiftDown}{END}{SHIFTUP}
     Sleep 50
     ;Send {Del}
     Send ^x
+  }
   Return
 
 ;
 ; <ctrl>u
 ; delete chars from cursor to beginning of line
 ;
-^u::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-  {
-    Send {ShiftDown}{HOME}{SHIFTUP}
-    Sleep 50
-    Send {Del}
-    ;Send ^x
-  }
-  Return
+;^u::
+;  If is_target()
+;    Send %A_ThisHotkey%
+;  Else
+;  {
+;    Send {ShiftDown}{HOME}{SHIFTUP}
+;    Sleep 50
+;    Send {Del}
+;    ;Send ^x
+;  }
+;  Return
 
 ;
 ; <ctrl>m
